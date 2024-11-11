@@ -8,19 +8,14 @@ import closeMenu from "../../Assets/images/icon-close.svg";
 import Cart from "../Cart/Cart";
 
 export default function Navbar(props) {
-    // Gestion affichage du panier, hérité de App.js via props
     const { displayCartList, toggleCart } = props;
 
-    // Contenu du panier récupéré dans Redux
     const cart = useSelector((state) => state.cart);
 
-    // State du menu en mode mobile (ouvert/fermé)
     const [toggleMenu, setToggleMenu] = useState(false);
 
-    // Compteur d'article (icône cart)
     const [counter, setCounter] = useState(30);
 
-    // Surveillance du panier pour MAJ du compteur
     useEffect(() => {
         let totalQty = 0;
         cart.forEach((item) => {
@@ -29,17 +24,14 @@ export default function Navbar(props) {
         setCounter(totalQty);
     }, [cart]);
 
-    // Fonction d'ouverture/fermeture du menu
     const openCloseMenu = () => {
         setToggleMenu(!toggleMenu);
     };
 
     return (
         <>
-            {/* Overlay menu mobile */}
             <div className={toggleMenu ? "menu-overlay" : ""}></div>
             <nav className="navbar">
-                {/* Bouton menu */}
                 <img
                     onClick={openCloseMenu}
                     src={iconMenu}
@@ -47,7 +39,6 @@ export default function Navbar(props) {
                     className="toggle-menu-btn"
                     title="Menu"
                 />
-                {/* Logo de l'entreprise */}
                 <a href="#" className="nav-logo">
                     <img
                         src={logoSneakers}
@@ -55,9 +46,7 @@ export default function Navbar(props) {
                         title="Sneakers"
                     />
                 </a>
-                {/* Liens de navigation */}
                 <div className={toggleMenu ? "nav-group active" : "nav-group"}>
-                    {/* Bouton fermeture menu mode mobile */}
                     <img
                         onClick={openCloseMenu}
                         src={closeMenu}
@@ -81,7 +70,6 @@ export default function Navbar(props) {
                         Contact
                     </a>
                 </div>
-                {/* Icônes panier et avatar */}
                 <div className="nav-icons">
                     <div className="cart-box">
                         <svg
@@ -109,7 +97,6 @@ export default function Navbar(props) {
                         title="Mon compte"
                     />
                 </div>
-                {/* Affichage conditionnel du panier */}
                 {toggleCart && <Cart />}
             </nav>
         </>

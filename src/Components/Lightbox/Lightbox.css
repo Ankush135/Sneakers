@@ -1,4 +1,3 @@
-/* Conteneur de la lightbox */
 .lightbox {
     width: 100vw;
     height: 100vh;
@@ -9,14 +8,12 @@
     background-color: rgba(0, 0, 0, 0.75);
 }
 
-/* Conteneur du composant Slider */
 .lightbox-slider {
     width: 100%;
     height: auto;
     margin: 50px auto;
 }
 
-/* Règles supplémentaires au composant Slider dans la lightbox */
 .lightbox .slider {
     width: 100%;
 }
@@ -25,13 +22,11 @@
     max-width: 550px;
 }
 
-/* Affichage chevrons navigation Slider */
 .lightbox .slider-icon.prev,
 .lightbox .slider-icon.next {
     display: flex;
 }
 
-/* Bouton close de la lightbox */
 .lightbox .btn-close {
     position: absolute;
     right: 0;

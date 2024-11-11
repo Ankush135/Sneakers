@@ -6,13 +6,10 @@ export const cartSlice = createSlice({
     initialState: [{ ...productInfos }],
     reducers: {
         addItem: (state, action) => {
-            // On vérifie si l'item est déjà présent dans le panier
             const item = state.find((item) => item.id === action.payload.id);
             if (item && item !== -1) {
-                // Si oui, on incrémente sa quantité
                 item.quantity = item.quantity + action.payload.quantity;
             } else if (action.payload.quantity !== 0){
-                // Sinon si la quantité à ajouter est différente de 0 on ajoute l'article
                 const newItem = {
                     id: action.payload.id,
                     brand: action.payload.brand,
@@ -25,12 +22,10 @@ export const cartSlice = createSlice({
 
                 state.push(newItem);
             } else {
-                // Sinon on ne fait rien
                 return;
             }
         },
         deleteItem: (state, action) => {
-            // On supprime l'élément cible de notre panier en filtrant celui-ci
             state = state.filter((item) => item.id !== action.payload);
             return state;
         },

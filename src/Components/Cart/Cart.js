@@ -15,7 +15,6 @@ export default function Cart() {
                 <div className="cart-list">
                     {cart.map((item) => {
                         return (
-                            // Ligne produit
                             <div key={uuidv4()} className="cart-item">
                                 <img
                                     className="cart-item-img"
@@ -37,7 +36,6 @@ export default function Cart() {
                                         </span>
                                     </span>
                                 </div>
-                                {/* Icône poubelle */}
                                 <svg
                                     className="bin"
                                     onClick={() =>
@@ -60,11 +58,9 @@ export default function Cart() {
                             </div>
                         );
                     })}
-                    {/* Bouton de validation de panier */}
                     <button className="cart-checkout-btn">Checkout</button>
                 </div>
             ) : (
-                // Message panier vide
                 <p className="cart-empty">Your cart is empty.</p>
             )}
         </div>

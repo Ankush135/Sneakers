@@ -1,6 +1,4 @@
-/* Style Global Navbar */
 .navbar {
-    /* Couleurs */
     --very-dark-blue: hsl(220, 13%, 13%);
     --dark-grayish-blue: hsl(219, 9%, 45%);
     --grayish-blue: hsl(220, 14%, 75%);
@@ -18,7 +16,6 @@
     background-color: #fff;
 }
 
-/* Bouton menu navbar compressée */
 .toggle-menu-btn {
     width: 22px;
     height: 22px;
@@ -26,13 +23,11 @@
     display: none;
     cursor: pointer;
 }
-/* Logo Sneakers */
 .nav-logo {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-/* Liens de navigation */
 .nav-group {
     position: relative;
     min-width: 300px;
@@ -43,7 +38,6 @@
     background-color: #fff;
 }
 
-/* Bouton fermeture menu navbar compressée */
 .close-menu-btn {
     display: none;
     width: 0.9rem;
@@ -54,7 +48,6 @@
     cursor: pointer;
 }
 
-/* Lien */
 .nav-link {
     position: relative;
     display: flex;
@@ -66,12 +59,10 @@
     transition: color 0.2s ease-out;
 }
 
-/* Changement de couleur lien survolé */
 .nav-link:hover {
     color: var(--very-dark--blue);
 }
 
-/* Bande orangée sous lien survolé */
 .nav-link::after {
     content: "";
     height: 3px;
@@ -83,12 +74,10 @@
     transition: opacity 0.2s ease-out;
 }
 
-/* Animation bande orangée sous lien survolé */
 .nav-link:hover::after {
     opacity: 1;
 }
 
-/* Groupe panier-avatar */
 .nav-icons {
     display: flex;
     align-items: center;
@@ -137,14 +126,11 @@
     transition: outline 0.05s ease-out;
 }
 
-/* Animation avatar survolé */
 .avatar:hover {
     outline: 2px solid var(--orange);
 }
 
-/* Règles petites résolutions jusqu'à 767px de largeur */
 @media screen and (max-width: 767px) {
-    /* Affichage des boutons ouvrir/fermer du menu */
     .toggle-menu-btn {
         display: block;
     }
@@ -153,7 +139,6 @@
         display: block;
     }
 
-    /* Surcouche noire à l'ouverture du menu */
     .menu-overlay {
         width: 100vw;
         height: 100vh;
@@ -165,7 +150,6 @@
         transition: background-color 0.2s ease-out;
     }
 
-    /* Rendu vertical des liens */
     .nav-group {
         position: absolute;
         top: 0;
@@ -180,7 +164,6 @@
         transition: transform 0.3s ease-out;
     }
 
-    /* Apparition de la navbar */
     .nav-group.active {
         transform: translateX(0%);
     }
@@ -192,7 +175,6 @@
         color: var(--very-dark-blue);
     }
 
-    /* Pas d'animation orangée en mode mobile */
     .nav-link::after {
         display: none;
     }
@@ -204,19 +186,9 @@
     }
 }
 
-@media screen and (max-width: 767px) {
-    /* .cart-box {
-        position: static;
-    }
-
-    .nav-icons {
-        position: relative;
-    }
-    
-    .cart-counter {
-        right: 45%;
-    } */
-}
+/* @media screen and (max-width: 767px) {
+  
+} */
 
 @media screen and (max-width: 1100px) {
     .navbar {

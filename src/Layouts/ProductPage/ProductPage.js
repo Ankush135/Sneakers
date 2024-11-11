@@ -11,17 +11,13 @@ import "./ProductPage.css";
 import ButtonCTA from "../../Components/ButtonCTA/ButtonCTA";
 
 export default function ProductPage() {
-    // Gestion d'état de la lightbox
     const [lightboxActive, setLightboxActive] = useState(false);
-    // Informations du produit
     const [productInfos, setProductInfos] = useState(productInfosTxt);
 
-    // Fonction Open/close de la lightbox
     const toggleLightbox = () => {
         setLightboxActive(!lightboxActive);
     };
 
-    // Gestion de la quantité avant mise au panier
     const [quantity, setQuantity] = useState(0);
 
     const updateQuantity = (qty) => {
@@ -49,11 +45,9 @@ export default function ProductPage() {
 
     return (
         <div className="product-container">
-            {/* Slider */}
             <Slider toggleLightbox={toggleLightbox} />
             {lightboxActive && <Lightbox toggleLightbox={toggleLightbox} />}
 
-            {/* Informations produit */}
             <div className="product-infos">
                 <BrandSubtitle>{productInfos.brand}</BrandSubtitle>
                 <h1>{productInfos.title}</h1>
@@ -72,7 +66,6 @@ export default function ProductPage() {
                 </div>
 
                 <div className="buttons-box">
-                    {/* Quantité */}
                     <div className="btn-qty">
                         <div onClick={removeQuantity} className="minus">
                             <svg
@@ -112,10 +105,8 @@ export default function ProductPage() {
                             </svg>
                         </div>
                     </div>
-                    {/* Bouton d'ajout au panier */}
                     <div
                         className="btn-cta-box"
-                        // Envoi des informations vers Redux
                         onClick={() =>
                             dispatch({
                                 type: "cart/addItem",
