@@ -1,0 +1,225 @@
+/* Style Global Navbar */
+.navbar {
+    /* Couleurs */
+    --very-dark-blue: hsl(220, 13%, 13%);
+    --dark-grayish-blue: hsl(219, 9%, 45%);
+    --grayish-blue: hsl(220, 14%, 75%);
+    --light-grayish-blue: hsl(223, 64%, 98%);
+    --orange: hsl(26, 100%, 55%);
+
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    min-width: 320px;
+    max-width: 1100px;
+    height: clamp(4rem, 10vw, 7rem);
+    margin: 0 auto;
+    border-bottom: 1px solid var(--light-grayish-blue);
+    background-color: #fff;
+}
+
+/* Bouton menu navbar compressée */
+.toggle-menu-btn {
+    width: 22px;
+    height: 22px;
+    margin: auto 20px auto 0px;
+    display: none;
+    cursor: pointer;
+}
+/* Logo Sneakers */
+.nav-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Liens de navigation */
+.nav-group {
+    position: relative;
+    min-width: 300px;
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+    margin-left: 35px;
+    background-color: #fff;
+}
+
+/* Bouton fermeture menu navbar compressée */
+.close-menu-btn {
+    display: none;
+    width: 0.9rem;
+    height: auto;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+}
+
+/* Lien */
+.nav-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    margin-inline: 15px;
+    text-decoration: none;
+    color: var(--dark-grayish-blue);
+    transition: color 0.2s ease-out;
+}
+
+/* Changement de couleur lien survolé */
+.nav-link:hover {
+    color: var(--very-dark--blue);
+}
+
+/* Bande orangée sous lien survolé */
+.nav-link::after {
+    content: "";
+    height: 3px;
+    width: 100%;
+    background-color: var(--orange);
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+    transition: opacity 0.2s ease-out;
+}
+
+/* Animation bande orangée sous lien survolé */
+.nav-link:hover::after {
+    opacity: 1;
+}
+
+/* Groupe panier-avatar */
+.nav-icons {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.cart-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.cart-logo {
+    width: 22px;
+    height: 20px;
+    margin: 20px;
+    cursor: pointer;
+}
+
+.cart-logo:hover path {
+    fill: var(--very-dark-blue);
+}
+
+.cart-counter {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 20%;
+    right: 25%;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #fff;
+    background-color: var(--orange);
+    min-width: 1rem;
+    padding-inline: 0.2rem;
+    border-radius: 10px;
+    pointer-events: none;
+}
+
+.avatar {
+    width: 45px;
+    height: 45px;
+    margin-left: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: outline 0.05s ease-out;
+}
+
+/* Animation avatar survolé */
+.avatar:hover {
+    outline: 2px solid var(--orange);
+}
+
+/* Règles petites résolutions jusqu'à 767px de largeur */
+@media screen and (max-width: 767px) {
+    /* Affichage des boutons ouvrir/fermer du menu */
+    .toggle-menu-btn {
+        display: block;
+    }
+
+    .close-menu-btn {
+        display: block;
+    }
+
+    /* Surcouche noire à l'ouverture du menu */
+    .menu-overlay {
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.75);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        transition: background-color 0.2s ease-out;
+    }
+
+    /* Rendu vertical des liens */
+    .nav-group {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        margin: 0;
+        padding-top: 5rem;
+        flex-direction: column;
+        align-items: flex-start;
+        height: 100vh;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-out;
+    }
+
+    /* Apparition de la navbar */
+    .nav-group.active {
+        transform: translateX(0%);
+    }
+
+    .nav-link {
+        padding-block: 10px;
+        margin-inline: 20px;
+        font-weight: 700;
+        color: var(--very-dark-blue);
+    }
+
+    /* Pas d'animation orangée en mode mobile */
+    .nav-link::after {
+        display: none;
+    }
+
+    .avatar {
+        width: 25px;
+        height: 25px;
+        margin-left: 0px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    /* .cart-box {
+        position: static;
+    }
+
+    .nav-icons {
+        position: relative;
+    }
+    
+    .cart-counter {
+        right: 45%;
+    } */
+}
+
+@media screen and (max-width: 1100px) {
+    .navbar {
+        padding-inline: 20px;
+    }
+}

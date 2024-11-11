@@ -1,0 +1,14 @@
+.old-price {
+    display: block;
+    font-weight: 700;
+    text-decoration: line-through;
+    color: var(--grayish-blue);
+    line-height: 1;
+    margin-top: 1rem;
+}
+
+@media screen and (max-width: 767px) {
+    .old-price {
+    margin-top: 1rem;
+    }
+}

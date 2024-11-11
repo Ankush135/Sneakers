@@ -1,0 +1,7 @@
+.brand-subtitle {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--orange);
+    margin-bottom: 1rem;
+}
