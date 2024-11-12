@@ -11,15 +11,14 @@ export default function Navbar(props) {
     const { displayCartList, toggleCart } = props;
 
     const cart = useSelector((state) => state.cart);
-
     const [toggleMenu, setToggleMenu] = useState(false);
-
+    const [isCartOpen, setIsCartOpen] = useState(false); // New state for cart open/close
     const [counter, setCounter] = useState(30);
 
     useEffect(() => {
         let totalQty = 0;
         cart.forEach((item) => {
-            totalQty = totalQty + item.quantity;
+            totalQty += item.quantity;
         });
         setCounter(totalQty);
     }, [cart]);
@@ -28,9 +27,25 @@ export default function Navbar(props) {
         setToggleMenu(!toggleMenu);
     };
 
+    const handleCartClick = () => {
+        setIsCartOpen(!isCartOpen);
+        displayCartList();
+    };
+
+    const closeCart = () => {
+        setIsCartOpen(false);
+    };
+
     return (
         <>
+            {/* Overlay for the cart, shown when cart is open */}
+            <div 
+                className={`cart-overlay ${isCartOpen ? "active" : ""}`} 
+                onClick={closeCart}
+            ></div>
+
             <div className={toggleMenu ? "menu-overlay" : ""}></div>
+
             <nav className="navbar">
                 <img
                     onClick={openCloseMenu}
@@ -74,7 +89,7 @@ export default function Navbar(props) {
                     <div className="cart-box">
                         <svg
                             className="cart-logo"
-                            onClick={displayCartList}
+                            onClick={handleCartClick}
                             width="22"
                             height="20"
                             alt="Panier d'achat"
@@ -97,7 +112,7 @@ export default function Navbar(props) {
                         title="Mon compte"
                     />
                 </div>
-                {toggleCart && <Cart />}
+                {isCartOpen && <Cart />}
             </nav>
         </>
     );

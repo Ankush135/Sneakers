@@ -16,6 +16,28 @@
     background-color: #fff;
 }
 
+.cart-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    z-index: 1000; /* Ensure it covers the main content */
+    display: none; /* Hidden by default */
+}
+
+/* Show the overlay when cart is open */
+.cart-overlay.active {
+    display: block;
+}
+
+/* Ensure the cart/sidebar has a higher z-index when open */
+.slider.cart-open {
+    z-index: 1001;
+}
+
+
 .toggle-menu-btn {
     width: 22px;
     height: 22px;
