@@ -12,7 +12,7 @@ export default function Navbar(props) {
 
     const cart = useSelector((state) => state.cart);
     const [toggleMenu, setToggleMenu] = useState(false);
-    const [isCartOpen, setIsCartOpen] = useState(false); // New state for cart open/close
+    const [isCartOpen, setIsCartOpen] = useState(false);
     const [counter, setCounter] = useState(30);
 
     useEffect(() => {
@@ -38,7 +38,7 @@ export default function Navbar(props) {
 
     return (
         <>
-            {/* Overlay for the cart, shown when cart is open */}
+            
             <div 
                 className={`cart-overlay ${isCartOpen ? "active" : ""}`} 
                 onClick={closeCart}

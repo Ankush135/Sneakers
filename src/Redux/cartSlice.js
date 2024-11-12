@@ -1,10 +1,8 @@
-// cartSlice.js
-
 import { createSlice } from "@reduxjs/toolkit";
 
 export const cartSlice = createSlice({
     name: "cart",
-    initialState: [], // Start with an empty array to represent an empty cart
+    initialState: [], 
     reducers: {
         addItem: (state, action) => {
             const item = state.find((item) => item.id === action.payload.id);
@@ -25,7 +23,7 @@ export const cartSlice = createSlice({
         },
         deleteItem: (state, action) => {
             const index = state.findIndex((item) => item.id === action.payload);
-            if (index !== -1) state.splice(index, 1); // Mutate state directly with splice
+            if (index !== -1) state.splice(index, 1); 
         },
     },
 });
